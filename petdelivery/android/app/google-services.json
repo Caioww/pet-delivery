@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "82184263176",
+    "firebase_url": "https://petdelivery-773b0.firebaseio.com",
+    "project_id": "petdelivery-773b0",
+    "storage_bucket": "petdelivery-773b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82184263176:android:281bdc564bc9971c5ba3bd",
+        "android_client_info": {
+          "package_name": "com.example.petdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82184263176-gveams1ok1d1k88o2e99tps46c7lj0ss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9LIMWB7fC8sA_ctoLfMaJ6YFhRfoNUts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82184263176-gveams1ok1d1k88o2e99tps46c7lj0ss.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
