@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'sign_in.dart';
-
 import 'first_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,57 +12,60 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlutterLogo(size: 150),
-              SizedBox(height: 50),
-              _signInButton(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _signInButton() {
-    return OutlineButton(
-      splashColor: Colors.grey,
-      onPressed: () {
-        signInWithGoogle().whenComplete(() {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return FirstScreen();
-              },
-            ),
-          );
-        });
-      },
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-      highlightElevation: 0,
-      borderSide: BorderSide(color: Colors.grey),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Builder(
+        builder: (context) => Stack(
+          fit: StackFit.expand,
           children: <Widget>[
-            Image(image: AssetImage("assets/google_logo.png"), height: 35.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Text(
-                'Sign in with Google',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.grey,
-                ),
-              ),
-            )
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Image.network('https://imgur.com/YFV5cIC.jpg',
+                  fit: BoxFit.fill,
+                  color: Color.fromRGBO(255, 255, 255, 0.6),
+                  colorBlendMode: BlendMode.modulate),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 10.0),
+                Container(
+                    width: 250.0,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: RaisedButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
+                        color: Color(0xffffffff),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Icon(
+                              FontAwesomeIcons.google,
+                              color: Color(0xffCE107C),
+                            ),
+                            SizedBox(width: 10.0),
+                            Text(
+                              'Sign in with Google',
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 18.0),
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          signInWithGoogle().whenComplete(() {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return FirstScreen();
+                                },
+                              ),
+                            );
+                          });
+                        },
+                      ),
+                    )),
+              ],
+            ),
           ],
         ),
       ),

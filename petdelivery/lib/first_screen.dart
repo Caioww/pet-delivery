@@ -23,38 +23,24 @@ class FirstScreen extends StatelessWidget {
                 backgroundImage: NetworkImage(
                   imageUrl,
                 ),
-                radius: 60,
+                radius: 50,
                 backgroundColor: Colors.transparent,
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 10.0),
               Text(
-                'NAME',
+                "Name :" + name,
                 style: TextStyle(
-                    fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black54),
+                    color: Colors.black,
+                    fontSize: 20.0),
               ),
+              SizedBox(height: 10.0),
               Text(
-                name,
+                "Email :" + email,
                 style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.deepPurple,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'EMAIL',
-                style: TextStyle(
-                    fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black54),
-              ),
-              Text(
-                email,
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.deepPurple,
-                    fontWeight: FontWeight.bold),
+                    color: Colors.black,
+                    fontSize: 20.0),
               ),
               SizedBox(height: 40),
               RaisedButton(
@@ -70,7 +56,7 @@ class FirstScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Sign Out',
-                    style: TextStyle(fontSize: 25, color: Colors.white),
+                    style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 ),
                 elevation: 5,
