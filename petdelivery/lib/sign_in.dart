@@ -1,8 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
+final FacebookLogin facebookLogin = FacebookLogin();
+
+var resultado;
 
 String name;
 String email;
@@ -45,7 +49,51 @@ Future<String> signInWithGoogle() async {
 }
 
 void signOutGoogle() async {
-  await googleSignIn.signOut();
+  print(FacebookLoginStatus.loggedIn);
+  print(resultado);
+  if (resultado == FacebookLoginStatus.loggedIn) {
+    await facebookLogin.logOut();
+    await _auth.signOut();
+    print("User Sign Out Facebook");
+  } else {
+    await googleSignIn.signOut();
+    await _auth.signOut();
+    print("User Sign Out Google");
+  }
+}
 
-  print("User Sign Out");
+Future<FirebaseUser> signInWithFacebook() async {
+  var result = await facebookLogin.logIn(['email']);
+  resultado = result.status;
+
+  final AuthCredential credential =
+      FacebookAuthProvider.getCredential(accessToken: result.accessToken.token);
+
+  if (result.status == FacebookLoginStatus.loggedIn) {
+    final AuthResult authResult = await _auth.signInWithCredential(credential);
+    FirebaseUser user = authResult.user;
+
+    assert(user.email != null);
+    assert(user.displayName != null);
+    assert(user.photoUrl != null);
+
+    name = user.displayName;
+    email = user.email;
+    imageUrl = user.photoUrl;
+
+    // Only taking the first part of the name, i.e., First Name
+    if (name.contains(" ")) {
+      name = name.substring(0, name.indexOf(" "));
+    }
+
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+
+    final FirebaseUser currentUser = await _auth.currentUser();
+    assert(user.uid == currentUser.uid);
+
+    return user;
+  }
+
+  return null;
 }

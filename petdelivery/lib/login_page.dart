@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'menu_page.dart';
 import 'sign_in.dart';
 import 'first_screen.dart';
 
@@ -53,6 +54,42 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         onPressed: () {
                           signInWithGoogle().whenComplete(() {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return FirstScreen();
+                                },
+                              ),
+                            );
+                          });
+                        },
+                      ),
+                    )),
+                Container(
+                    width: 250.0,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: RaisedButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
+                        color: Color(0xffffffff),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Icon(
+                              FontAwesomeIcons.facebook,
+                              color: Colors.blue,
+                            ),
+                            SizedBox(width: 10.0),
+                            Text(
+                              'Sign in with Facebook',
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 18.0),
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          signInWithFacebook().whenComplete(() {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) {
