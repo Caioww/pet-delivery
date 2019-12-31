@@ -161,6 +161,30 @@ class _HomeState extends State<Home> {
             ],
           ),
           SizedBox(height: 10),
+          ListTile(
+            leading: SizedBox(
+              height: 50.0,
+              width: 30.0, // fixed width and height
+              child: Image.asset("assets/casasracao.png"),
+            ),
+            title: Text('Casa de Rações Bocaina'),
+          ),
+          ListTile(
+            leading: SizedBox(
+              height: 50.0,
+              width: 30.0, // fixed width and height
+              child: Image.asset("assets/casasracao.png"),
+            ),
+            title: Text('Casa de Ração Nova América'),
+          ),
+          ListTile(
+            leading: SizedBox(
+              height: 50.0,
+              width: 30.0, // fixed width and height
+              child: Image.asset("assets/casasracao.png"),
+            ),
+            title: Text('Calopdog Casa de Ração'),
+          ),
         ],
       ),
     );
