@@ -4,7 +4,7 @@ List furnitures = [
     "img": "assets/racoes.jpg",
   },
   {
-    "name": "Produtos de Limpeza",
+    "name": "Limpeza",
     "img": "assets/limpeza.jpg",
   },
   {

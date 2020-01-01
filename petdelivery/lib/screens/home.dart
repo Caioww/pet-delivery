@@ -30,11 +30,11 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.only(left: 20),
+        padding: EdgeInsets.only(left: 15),
         children: <Widget>[
           SizedBox(height: 10),
           Padding(
-            padding: EdgeInsets.only(right: 20),
+            padding: EdgeInsets.only(right: 5),
             child: Card(
               elevation: 6.0,
               child: Container(
@@ -109,8 +109,8 @@ class _HomeState extends State<Home> {
                       );
                     },
                     child: Container(
-                      height: 180,
-                      width: 200,
+                      height: 120,
+                      width: 160,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -137,6 +137,17 @@ class _HomeState extends State<Home> {
                   ),
                 );
               },
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 0.0, right: 10.0),
+            height: 120,
+            child: ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(10.0)),
+              child: Image.asset(
+                "assets/petshop.jpg",
+                fit: BoxFit.fill,
+              ),
             ),
           ),
           Row(
