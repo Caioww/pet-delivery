@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:petdelivery/screens/Favorites.dart';
 import 'package:petdelivery/screens/home.dart';
+import 'package:petdelivery/screens/warning_login.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -15,11 +17,14 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _pageController,
-        onPageChanged: onPageChanged,
-        children: List.generate(6, (index) => Home()),
-      ),
+          physics: NeverScrollableScrollPhysics(),
+          controller: _pageController,
+          onPageChanged: onPageChanged,
+          children: <Widget>[
+            Home(),
+            Favorites(),
+            WarningLogin(),
+          ]),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           // sets the background color of the `BottomNavigationBar`
@@ -72,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: 2);
+    _pageController = PageController();
   }
 
   @override
