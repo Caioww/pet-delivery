@@ -8,6 +8,13 @@ class WarningLogin extends StatefulWidget {
 class _WarningLogin extends State<WarningLogin> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Text("Você não está logado"),
+      ),
+      floatingActionButton: FlatButton(
+        child: Text("Criar conta"),
+      ),
+    );
   }
 }

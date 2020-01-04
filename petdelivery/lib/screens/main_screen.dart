@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:petdelivery/screens/Favorites.dart';
 import 'package:petdelivery/screens/home.dart';
+import 'package:petdelivery/screens/login.dart';
 import 'package:petdelivery/screens/warning_login.dart';
 
 class MainScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _MainScreenState extends State<MainScreen> {
             Home(),
             Favorites(),
             WarningLogin(),
+            Login(),
           ]),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
@@ -46,19 +48,19 @@ class _MainScreenState extends State<MainScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Feather.getIconData("heart"),
+                Feather.getIconData("search"),
+              ),
+              title: Container(height: 0.0),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Feather.getIconData("book-open"),
               ),
               title: Container(height: 0.0),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Feather.getIconData("user"),
-              ),
-              title: Container(height: 0.0),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Feather.getIconData("grid"),
               ),
               title: Container(height: 0.0),
             ),
