@@ -2,16 +2,39 @@ import 'package:flutter/material.dart';
 
 void showSimpleCustomDialog(BuildContext context) {
   Dialog simpleDialog = Dialog(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
     child: Container(
-      height: 250.0,
-      width: 600.0,
-      padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-      color: Colors.white,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        color: Colors.white,
+      ),
+      height: 300.0,
+      width: 300.0,
       child: ListView(
         children: <Widget>[
+          Stack(
+            children: <Widget>[
+              Align(
+                // These values are based on trial & error method
+                alignment: Alignment(1.00, -1.90),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(
+                      Icons.close,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
